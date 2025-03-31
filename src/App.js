@@ -1,102 +1,59 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Routes, Link, Route } from 'react-router-dom';
-import AnwendungHeader from "./komponenten/anwendungHeader";
-import AnwendungFooter from "./komponenten/anwendungFooter";
 
-//Allgemeine
-import DatenschutzAnsicht from "./ansichten/allgemeine/datenschutzAnsicht";
-import EinloggenAnsicht from "./ansichten/allgemeine/einloggenAnsicht";
-import HomeAnsicht from "./ansichten/allgemeine/homeAnsicht";
-import KontaktAnsicht from "./ansichten/allgemeine/kontaktAnsicht";
-import NutzungsbedingungenAnsicht from "./ansichten/allgemeine/nutzungsbedingungenAnsicht";
-import RegistrierenAnsicht from "./ansichten/allgemeine/registrierenAnsicht";
-import WiederherstellenAnsicht from "./ansichten/allgemeine/wiederherstellenAnsicht";
-
-//Kunde
-import KundeDashboardAnsicht from "./ansichten/kunde/kundeDashboardAnsicht";
-import KundeMeineBestellungenAnsicht from "./ansichten/kunde/kundeMeineBestellungenAnsicht";
-import KundeMeineDatenAnsicht from "./ansichten/kunde/kundeMeineDatenAnsicht";
-import KundeMeineZahlungenAnsicht from "./ansichten/kunde/kundeMeineZahlungenAnsicht";
-import KundeProfilAnsicht from "./ansichten/kunde/kundeProfilAnsicht";
-
-//Mitarbeiter
-import MitarbeiterBestellungenAnsicht from "./ansichten/mitarbeiter/mitarbeiterBestellungenAnsicht";
-import MitarbeiterBestellungenDetailsAnsicht from "./ansichten/mitarbeiter/mitarbeiterBestellungenDetailsAnsicht";
-import MitarbeiterDashboardAnsicht from "./ansichten/mitarbeiter/mitarbeiterDashboardAnsicht";
-import MitarbeiterKundeDetailsAnsicht from "./ansichten/mitarbeiter/mitarbeiterKundeDetailsAnsicht";
-import MitarbeiterKundenAnsicht from "./ansichten/mitarbeiter/mitarbeiterKundenAnsicht";
-
-//Pfad
-import PfadAktualisierenAnsicht from "./ansichten/pfad/pfadAktualisierenAnsicht";
-import PfadDetailsAnsicht from "./ansichten/pfad/pfadDetailsAnsicht";
-import PfadListeAnsicht from "./ansichten/pfad/pfadListeAnsicht";
-import PfadNeuAnsicht from "./ansichten/pfad/pfadNeuAnsicht";
-import PfadVerwalten from "./ansichten/pfad/pfadVerwaltenAnsicht";
-
-//trainieren
-import TrainierenAktualisierenAnsicht from "./ansichten/trainieren/trainierenAktualisierenAnsicht";
-import TrainierenDashboardAnsicht from "./ansichten/trainieren/trainierenDashboardAnsicht";
-import TrainierenErfolgeAnsicht from "./ansichten/trainieren/trainierenErfolgeAnsicht";
-import TrainierenNeuAnsicht from "./ansichten/trainieren/trainierenNeuAnsicht";
-import TrainierenZeitplanAktualisierenAnsicht from "./ansichten/trainieren/trainierenZeitplanAktualisierenAnsicht";
-import TrainierenZeitplanAnsicht from "./ansichten/trainieren/trainierenZeitplanAnsicht";
-import TrainierenZeitplanNeuAnsicht from "./ansichten/trainieren/trainierenZeitplanNeuAnsicht";
-
-//verwaltung
-import VerwaltungBenutzerAktualisierenAnsicht from "./ansichten/verwaltung/verwaltungBenutzerAktualisierenAnsicht";
-import VerwaltungBenutzerDashboardAnsicht from "./ansichten/verwaltung/verwaltungBenutzerDashboardAnsicht";
-import VerwaltungBenutzerGeschichteAnsicht from "./ansichten/verwaltung/verwaltungBenutzerGeschichteAnsicht";
-import VerwaltungBenutzerNeuAnsicht from "./ansichten/verwaltung/verwaltungBenutzerNeuAnsicht";
-import VerwaltungBenutzerVerwaltenAnsicht from "./ansichten/verwaltung/verwaltungBenutzerVerwaltenAnsicht";
+import AboutView from './views/aboutView';
+import AccountView from './views/accountView';
+import AccountCreateView from './views/account/accountCreateView';
+import AccountProfileView from './views/account/accountProfileView';
+import AccountUpdateView from './views/account/accountUpdateView';
+import ChallengeView from './views/challengeView';
+import ChallengeDetailsView from './views/challenge/challengeDetailsView';
+import ChallengeListView from './views/challenge/challengeListView';
+import DashboardView from './views/dashboardView';
+import PasswordUpdateView from './views/passwordUpdateView';
+import RestorePasswordView from './views/restorePasswordView';
+import SignInView from './views/signInView';
+import SignUpView from './views/signUpView';
+import WelcomeView from './views/welcomeView';
+import WorkoutView from './views/workoutView';
+import WorkoutCreateView from './views/workout/workoutCreateView';
+import WorkoutDetailsView from './views/workout/workoutDetailsView';
+import WorkoutListView from './views/workout/workoutListView';
+import WorkoutUpdateView from './views/workout/workoutUpdateView';
 
 import './App.css';
+
 
 function App() {
   return (
     <Router>
-        <AnwendungHeader/>
         <Routes>
-          <Route path="/datenschutz" element={<DatenschutzAnsicht/>} />
-          <Route path="/einloggen" element={<EinloggenAnsicht/>} />
-          <Route exact path="/" element={<HomeAnsicht/>} />
-          <Route path="/kontakt" element={<KontaktAnsicht />} />
-          <Route path="/Nutzungsbedingungen" element={<NutzungsbedingungenAnsicht />} />
-          <Route path="/registrieren" element={<RegistrierenAnsicht/>} />
-          <Route path="/wiederherstellen" element={<WiederherstellenAnsicht/>} />
-          
-          <Route exact path="/kunde" element={<KundeDashboardAnsicht/>}/>
-          <Route path="/kunde/bestellungen" element={<KundeMeineBestellungenAnsicht/>} />
-          <Route path="/kunde/daten" element={<KundeMeineDatenAnsicht/>} />
-          <Route path="/kunde/zahlungen" element={<KundeMeineZahlungenAnsicht/>} />
-          <Route path="/kunde/profil" element={<KundeProfilAnsicht/>} />
-          
-          <Route exact path="/mitarbeiter" element={<MitarbeiterDashboardAnsicht/>}/>
-          <Route path="/mitarbeiter/bestellungen" element={<MitarbeiterBestellungenAnsicht/>} />
-          <Route path="/mitarbeiter/bestellungen/:id" element={<MitarbeiterBestellungenDetailsAnsicht/>} />
-          <Route path="/mitarbeiter/kunden" element={<MitarbeiterKundenAnsicht/>} />
-          <Route path="/mitarbeiter/kunden/:id" element={<MitarbeiterKundeDetailsAnsicht/>} />
-          
-          <Route exact path="/trainieren" element={<TrainierenDashboardAnsicht/>}/>
-          <Route path="/trainieren/erfolge" element={<TrainierenErfolgeAnsicht/>} />
-          <Route path="/trainieren/neu" element={<TrainierenNeuAnsicht/>} />
-          <Route path="/trainieren/aktualisieren" element={<TrainierenAktualisierenAnsicht/>} />
-          <Route path="/trainieren/zeitplan" element={<TrainierenZeitplanAnsicht/>} />
-          <Route path="/trainieren/zeitplan/aktualisieren" element={<TrainierenZeitplanAktualisierenAnsicht/>} />
-          <Route path="/trainieren/zeitplan/neu" element={<TrainierenZeitplanNeuAnsicht/>} />
-
-          <Route exact path="/pfad" element={<PfadVerwalten/>}/>
-          <Route path="/pfad/neu" element={<PfadNeuAnsicht/>} />
-          <Route path="/pfad/liste/:id" element={<PfadDetailsAnsicht/>} />
-          <Route path="/pfad/liste" element={<PfadListeAnsicht/>} />
-          <Route path="/pfad/aktulisieren/:id" element={<PfadAktualisierenAnsicht/>} />
-          
-          <Route exact path="/benutzer" element={<VerwaltungBenutzerDashboardAnsicht/>}/>
-          <Route path="/benutzer/aktualisieren/:id" element={<VerwaltungBenutzerAktualisierenAnsicht/>} />
-          <Route path="/benutzer/geschichte/:id" element={<VerwaltungBenutzerGeschichteAnsicht/>} />
-          <Route path="/benutzer/neu" element={<VerwaltungBenutzerNeuAnsicht/>} />
-          <Route path="/benutzer/verwalten" element={<VerwaltungBenutzerVerwaltenAnsicht/>} />
+            <Route exact path="/" element={<WelcomeView/>}/>
+            <Route exact path="about" element={<AboutView/>}/>
+            <Route exact path="/account" element={<AccountView/>}/>
+            <Route exact path="/account/create" element={<AccountCreateView/>}/>
+            <Route exact path="/account/profiile" element={<AccountProfileView/>}/>
+            <Route exact path="/account/update" element={<AccountUpdateView/>}/>
+            <Route exact path="/challenge" element={<ChallengeView/>}/>
+            <Route exact path="/challenge/details/*">
+              <Route path=":id" element={<ChallengeDetailsView/>}/>
+            </Route>
+            <Route exact path="/challenge/list" element={<ChallengeListView/>}/>
+            <Route exact path="/dashboard" element={<DashboardView/>}/>
+            <Route exact path="/update-password" element={<PasswordUpdateView/>}/>
+            <Route exact path="/restore-password" element={<RestorePasswordView/>}/>
+            <Route exact path="/signin" element={<SignInView/>}/>
+            <Route exact path="/signup" element={<SignUpView/>}/>
+            <Route exact path="/workout" element={<WorkoutView/>}/>
+            <Route exact path="/workout/create" element={<WorkoutCreateView/>}/>
+            <Route exact path="/workout/details/*">
+              <Route path=":id" element={<WorkoutDetailsView/>}/>
+            </Route>
+            <Route exact path="/workout/list" element={<WorkoutListView/>}/>
+            <Route exact path="/workout/update/*">
+              <Route path=":id" element={<WorkoutUpdateView/>}/>
+            </Route>
         </Routes>
-        <AnwendungFooter/>
     </Router>
   );
 }
